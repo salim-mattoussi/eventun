@@ -3,19 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package eventun;
+package ServiceEvenTun;
+
+import java.util.ArrayList;
 
 /**
  *
  * @author panda
  */
-public class EvenTun {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+public interface service <T>{
+        void add(T t);
+        void delete(T t);
+        T readById(int id);
+        ArrayList<T>readAll();
+        void update(T t);
     
 }
