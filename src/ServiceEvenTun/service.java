@@ -17,5 +17,6 @@ public interface service <T>{
         T readById(int id);
         ArrayList<T>readAll();
         void update(T t);
+         void login(T t);
     
 }

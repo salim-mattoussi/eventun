@@ -71,7 +71,7 @@ public class userservice implements service<user>{
         }
         return list;
     }
-
+   
 //    @Override
    public void add(user p) {
 //        String requete = "insert into personne (nom,prenom,age) values('" + u.ge + "','" + p.getPrenom() + "'," + p.getAge() + ")";

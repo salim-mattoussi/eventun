@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GuiUser.LogininterfaceController">
+   <left>
+      <AnchorPane prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: FFD700;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="105.0" layoutY="108.0" prefHeight="69.0" prefWidth="158.0" text="Youpi ">
+               <font>
+                  <Font name="System Bold" size="47.0" />
+               </font>
+            </Label>
+            <Label layoutX="113.0" layoutY="189.0" text="Les fêtes">
+               <font>
+                  <Font name="System Bold" size="27.0" />
+               </font>
+            </Label>
+            <Label layoutX="159.0" layoutY="239.0" text="C">
+               <font>
+                  <Font name="System Bold" size="27.0" />
+               </font>
+            </Label>
+            <Label layoutX="130.0" layoutY="288.0" text="NOUS">
+               <font>
+                  <Font name="System Bold" size="27.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="103.0" fitWidth="116.0" layoutX="14.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/fete.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane fx:id="HboxR" prefHeight="500.0" prefWidth="435.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="txtusername" layoutX="58.0" layoutY="187.0" prefHeight="28.0" prefWidth="238.0" promptText="Username/email" style="-fx-background-color: transparent; -fx-border-color: FFD700; -fx-border-width: 0px0px3px0px;" />
+            <PasswordField fx:id="txtpassword" layoutX="58.0" layoutY="238.0" prefHeight="28.0" prefWidth="236.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: FFD700; -fx-border-width: 0px0px3px0px;" />
+            <Button fx:id="btnlogin" layoutX="145.0" layoutY="317.0" mnemonicParsing="false" onAction="#login" prefHeight="28.0" prefWidth="62.0" style="-fx-background-color: FFD700;" text="Login" />
+            <Hyperlink layoutX="170.0" layoutY="276.0" text="Forget your password" textFill="GOLD" />
+            <Label layoutX="131.0" layoutY="117.0" text="User Login">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="103.0" layoutY="456.0" text="Create account" />
+            <Hyperlink layoutX="194.0" layoutY="453.0" text="SignUp" textFill="GOLD" />
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>
