@@ -17,12 +17,22 @@ public class Evenement {
     private String date;
     private String description;
 
+    public Evenement(){}
+    
+    
     public Evenement(int id, String nom, String lieu, String date, String description) {
         this.id = id;
         this.nom = nom;
         this.lieu = lieu;
         this.date = date;
         this.description = description;
+    }
+
+    public Evenement(String nom,String lieu, String description,int id) {
+         this.nom = nom;
+         this.lieu = lieu;
+         this.description = description;
+         this.id = id;
     }
 
     public int getId() {
