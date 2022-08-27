@@ -58,8 +58,7 @@ public class SignUpController implements Initializable {
     @FXML
     private TextField txtlogin;
 
-    @FXML
-    private TextField txtname;
+    
 
     @FXML
     private TextField txttelf;
@@ -74,11 +73,10 @@ public class SignUpController implements Initializable {
         String email=txtemail.getText();
         String login=txtlogin.getText();
         String telephone = txttelf.getText();
-        String name = txtname.getText();
         String password = txtpwd.getText();
         String role=comborole.getSelectionModel().getSelectedItem();
         
-        if (email.equals("") || login.equals("") || telephone.equals("") || name.equals("") || role.equals("Choose your role") || password.equals(""))
+        if (email.equals("") || login.equals("") || telephone.equals("") || role.equals("Choose your role") || password.equals(""))
             
               JOptionPane.showMessageDialog(null,"please complete all the fills");
         
@@ -103,10 +101,10 @@ public class SignUpController implements Initializable {
       
         else{  
          
-             pst = cnx.prepareStatement("insert into user (name, login, pwd, telephone,email, role) values(?,?,?,?,?,?)");
+             pst = cnx.prepareStatement("insert into user ( login, pwd, telephone,email, role) values(?,?,?,?,?)");
             
             
-            pst.setString(1, txtname.getText().trim());
+            
             pst.setString(2, txtlogin.getText().trim());
             pst.setString(3, txtpwd.getText().trim());
             pst.setString(4, txttelf.getText().trim());

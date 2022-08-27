@@ -22,7 +22,7 @@ public class login extends Application {
  
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent root=FXMLLoader.load(getClass().getResource("logininterface.fxml"));
+        Parent root=FXMLLoader.load(getClass().getResource("AdminDashboard.fxml"));
         
         Scene scene = new Scene(root);
       
