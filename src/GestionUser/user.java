@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gestionutilisateur;
+package GestionUser;
 
 import java.util.Objects;
 
@@ -18,17 +18,19 @@ public class user {
     private String pwd;
     private int telf;
     private String role;
+     private String name;
 
     public user() {
     }
 
-    public user(int id, String login, String email, String pwd, int telf, String role) {
+    public user(int id, String login, String email, String pwd, int telf, String role, String name) {
         this.id = id;
         this.login = login;
         this.email = email;
         this.pwd = pwd;
         this.telf = telf;
         this.role = role;
+        this.name = name;
     }
 
     public user(int aInt, String string, String string0, int aInt0) {
@@ -83,9 +85,17 @@ public class user {
         this.role = role;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
+        int hash = 3;
         return hash;
     }
 
@@ -104,7 +114,7 @@ public class user {
         if (this.id != other.id) {
             return false;
         }
-        if (!Objects.equals(this.role, other.role)) {
+        if (!Objects.equals(this.login, other.login)) {
             return false;
         }
         return true;
@@ -112,9 +122,8 @@ public class user {
 
     @Override
     public String toString() {
-        return "user{" + "id=" + id + ", login=" + login + ", email=" + email + ", pwd=" + pwd + ", telf=" + telf + ", role=" + role + '}';
+        return "user{" + "id=" + id + ", login=" + login + ", email=" + email + ", pwd=" + pwd + ", telf=" + telf + ", role=" + role + ", name=" + name + '}';
     }
     
-    
-    
+
 }

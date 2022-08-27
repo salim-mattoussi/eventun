@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package service;
+package ServiceEvenTun;
 
-import gestionutilisateur.user;
+import GestionUser.user;
+import GuiUser.login;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,7 +15,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import util.DataSource;
+import service.service;
+import UtilData.DataSource;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -40,17 +43,22 @@ public class userservice implements service<user>{
 
 
     public void adduser(user u) throws SQLException {
-        String requete = "insert into user (id,email,role,telf,id) values(?,?,?,?,?)";
-
-        pst = cnx.prepareStatement(requete);
-
-        pst.setString(1, u.getEmail());
-        pst.setString(2, u.getRole());
-        pst.setInt(3, u.getTelf());
-        pst.setInt(4, u.getId());
-
-        pst.executeUpdate();
-
+     
+             pst = cnx.prepareStatement("insert into user (name, login, pwd, telephone,email, role) values(?,?,?,?,?,?)");
+            
+            
+            pst.setString(1, u.getEmail());
+            pst.setString(2, u.getLogin());
+            pst.setString(3, u.getPwd());
+            pst.setInt(4, u.getTelf());
+            pst.setString(5, u.getName());
+            pst.setString(6, u.getRole());
+           
+            
+            pst.execute();
+            
+            JOptionPane.showMessageDialog(null,"Account successfully registered");
+         
     }
 
     public ArrayList<user> readAll() {
