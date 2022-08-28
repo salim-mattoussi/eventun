@@ -14,8 +14,9 @@ import java.util.ArrayList;
 public interface service <T>{
         void add(T t);
         void delete(T t);
-        T readById(int id);
+        void readById(int id);
         ArrayList<T>readAll();
         void update(T t);
+       
     
 }

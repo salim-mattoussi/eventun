@@ -14,7 +14,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import service.service;
+import ServiceEvenTun.service;
 import UtilData.DataSource;
 
 /**
@@ -98,7 +98,7 @@ public class userservice implements service<user>{
     }
 
     @Override
-    public user readById(int id) {
+    public void readById(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

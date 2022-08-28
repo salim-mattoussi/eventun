@@ -1,14 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GuiPromotion.PromographicController">
+<AnchorPane id="AnchorPane" blendMode="LIGHTEN" prefHeight="700.0" prefWidth="1050.0" styleClass="backgroundColor" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GuiPromotion.PromographicController">
     <stylesheets>
-        <URL value="@promographic.css"/>
+        <URL value="@promographic.css" />
     </stylesheets>
+   <children>
+      <TextField fx:id="numeroCarte" accessibleText="1..9" layoutX="348.0" layoutY="239.0" onKeyTyped="#checkinput" prefHeight="31.0" prefWidth="295.0" />
+      <TextField fx:id="codeS" layoutX="489.0" layoutY="316.0" prefHeight="31.0" prefWidth="156.0" />
+      <TextField fx:id="postal" layoutX="349.0" layoutY="395.0" onKeyTyped="#checkinput" prefHeight="31.0" prefWidth="295.0" />
+      <Label layoutX="375.0" layoutY="218.0" text="Numero de carte " />
+      <Label layoutX="352.0" layoutY="295.0" text="Date d'expiration" />
+      <Label layoutX="492.0" layoutY="295.0" text="Code de securité" />
+      <Label layoutX="356.0" layoutY="375.0" text="Code postal/zip" />
+      <RadioButton fx:id="tn" layoutX="722.0" layoutY="192.0" mnemonicParsing="false" onAction="#getTypePay">
+         <toggleGroup>
+            <ToggleGroup fx:id="visamar" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="visa" layoutX="722.0" layoutY="345.0" mnemonicParsing="false" onAction="#getTypePay" toggleGroup="$visamar" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="769.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Carte-e-dinar-paiement-en-ligne-site-e-commerce-Web-Media-Tunisie.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="769.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Visa-Logo-2006.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="pay" layoutX="431.0" layoutY="584.0" mnemonicParsing="false" onAction="#payementickets" prefHeight="31.0" prefWidth="135.0" text="valider" />
+      <Label fx:id="error1" layoutX="375.0" layoutY="270.0" prefHeight="21.0" prefWidth="200.0" />
+      <Label fx:id="error2" layoutX="492.0" layoutY="344.0" prefHeight="21.0" prefWidth="112.0" />
+      <TableView fx:id="table" layoutX="347.0" layoutY="111.0" prefHeight="75.0" prefWidth="295.0">
+        <columns>
+          <TableColumn fx:id="montant" prefWidth="294.0" text="Montant " />
+        </columns>
+      </TableView>
+      <Button fx:id="promoBtn" layoutX="431.0" layoutY="479.0" mnemonicParsing="false" onAction="#calculepromo" text="Votre promotion " />
+      <DatePicker fx:id="exdate" layoutX="350.0" layoutY="316.0" onAction="#printDate" prefHeight="31.0" prefWidth="148.0" />
+      <ImageView fx:id="ballon" fitHeight="468.0" fitWidth="312.0" layoutX="-6.0" layoutY="386.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/ballon-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="138.0" fitWidth="69.0" layoutX="143.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true" rotate="9.5">
+         <image>
+            <Image url="@../images/ballon2-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="-7.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" rotate="4.4">
+         <image>
+            <Image url="@../images/ballon1-removebg-preview.png" />
+         </image>
+      </ImageView>
+   </children>
 </AnchorPane>
