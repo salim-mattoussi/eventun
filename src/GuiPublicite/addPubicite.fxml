@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="519.0" prefWidth="381.0" style="-fx-background-color: #fff;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GuiPublicite.FormulairePubliciteController">
+    <stylesheets>
+        <URL value="@formulairepublicite.css" />
+    </stylesheets>
+   <children>
+      <Label layoutX="46.0" layoutY="92.0" text="type" textFill="#fe167e">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="152.0" text="description" textFill="#fe167e">
+         <font>
+            <Font size="17.0" />
+         </font></Label>
+      <TextField fx:id="txttYpe" layoutX="172.0" layoutY="93.0" prefHeight="25.0" prefWidth="179.0" promptText="type de publicite" />
+      <Button layoutX="93.0" layoutY="424.0" mnemonicParsing="false" onAction="#save" prefHeight="38.0" prefWidth="89.0" style="-fx-background-color: #00E676;" text="save" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnjoindre" layoutX="26.0" layoutY="260.0" mnemonicParsing="false" onAction="#choose" prefHeight="27.0" prefWidth="89.0" text="image" textFill="#fe167e">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <TextField fx:id="img_text" layoutX="172.0" layoutY="315.0" prefHeight="25.0" prefWidth="179.0" promptText="url" />
+      <Label fx:id="image" layoutX="172.0" layoutY="212.0" prefHeight="95.0" prefWidth="169.0" />
+      <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="435.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ajouter publicite">
+               <font>
+                  <Font name="Bauhaus 93" size="29.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+      <Button layoutX="242.0" layoutY="424.0" mnemonicParsing="false" onAction="#clean" prefHeight="38.0" prefWidth="89.0" style="-fx-background-color: #FFFF00;" text="clean" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="txtdescription" layoutX="172.0" layoutY="140.0" prefHeight="25.0" prefWidth="179.0" promptText="description" />
+   </children>
+</AnchorPane>

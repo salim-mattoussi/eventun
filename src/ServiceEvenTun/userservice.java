@@ -14,7 +14,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import service.service;
 import UtilData.DataSource;
 
 /**
@@ -54,6 +53,7 @@ public class userservice implements service<user>{
 
     }
 
+    @Override
     public ArrayList<user> readAll() {
          ArrayList<user> list = new ArrayList<>();
         try {
@@ -73,6 +73,7 @@ public class userservice implements service<user>{
     }
 
 //    @Override
+    @Override
    public void add(user p) {
 //        String requete = "insert into personne (nom,prenom,age) values('" + u.ge + "','" + p.getPrenom() + "'," + p.getAge() + ")";
 //        Statement ste;
