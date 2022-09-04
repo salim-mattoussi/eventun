@@ -24,7 +24,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 import service.userservice;
-import util.DataSource;
+import UtilData.DataSource;
 
 /**
  * FXML Controller class
@@ -38,7 +38,7 @@ public class SignUpController implements Initializable {
     private ResultSet rs;
     
     public SignUpController() {
-         cnx = DataSource.getInstance().getConnection();
+         cnx = DataSource.getConnection();
     }
     
     ObservableList<String> RoleBoxList = FXCollections.observableArrayList("User","event Manager","advertising manager");
@@ -102,14 +102,12 @@ public class SignUpController implements Initializable {
         else{  
          
              pst = cnx.prepareStatement("insert into user ( login, pwd, telephone,email, role) values(?,?,?,?,?)");
-            
-            
-            
-            pst.setString(2, txtlogin.getText().trim());
-            pst.setString(3, txtpwd.getText().trim());
-            pst.setString(4, txttelf.getText().trim());
-            pst.setString(5, txtemail.getText().trim());
-            pst.setString(6, comborole.getSelectionModel().getSelectedItem());
+          
+            pst.setString(1, txtlogin.getText().trim());
+            pst.setString(2, txtpwd.getText().trim());
+            pst.setString(3, txttelf.getText().trim());
+            pst.setString(4, txtemail.getText().trim());
+            pst.setString(5, comborole.getSelectionModel().getSelectedItem());
            
             
             pst.execute();

@@ -23,7 +23,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 import service.userservice;
-import util.DataSource;
+import UtilData.DataSource;
 
 /**
  * FXML Controller class
@@ -40,7 +40,7 @@ public class LogininterfaceController implements Initializable {
      * Initializes the controller class.
      */
     public LogininterfaceController() {
-         cnx = DataSource.getInstance().getConnection();
+         cnx = DataSource.getConnection();
     }
 
     
