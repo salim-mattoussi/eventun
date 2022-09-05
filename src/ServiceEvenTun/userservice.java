@@ -5,8 +5,7 @@
  */
 package ServiceEvenTun;
 
-import GestionUser.user;
-import GuiUser.login;
+import GestionUser.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,7 +22,7 @@ import javax.swing.JOptionPane;
  *
  * @author panda
  */
-public class userservice implements service<user>{
+public class userservice implements service<User>{
     /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -38,20 +37,20 @@ public class userservice implements service<user>{
     private ResultSet rs;
 
     public userservice() {
-        cnx = DataSource.getInstance().getConnection();
+        cnx = DataSource.getConnection();
     }
 
 
-    public void adduser(user u) throws SQLException {
+    public void adduser(User u) throws SQLException {
      
-             pst = cnx.prepareStatement("insert into user (name, login, pwd, telephone,email, role) values(?,?,?,?,?,?)");
+             pst = cnx.prepareStatement("insert into user ( login, pwd, telephone,email, role) values(?,?,?,?,?,?)");
             
             
             pst.setString(1, u.getEmail());
             pst.setString(2, u.getLogin());
             pst.setString(3, u.getPwd());
-            pst.setInt(4, u.getTelf());
-            pst.setString(5, u.getName());
+            pst.setInt(4, u.getTelephone());
+           
             pst.setString(6, u.getRole());
            
             
@@ -61,16 +60,16 @@ public class userservice implements service<user>{
          
     }
 
-    public ArrayList<user> readAll() {
-         ArrayList<user> list = new ArrayList<>();
+    public ArrayList<User> readAll() {
+         ArrayList<User> list = new ArrayList<>();
         try {
             String requete = "select * from user";
            
             ste = cnx.createStatement();
             rs = ste.executeQuery(requete);
             while (rs.next()) {
-                user u = new user(rs.getInt(3), rs.getString(2), rs.getString(1), rs.getInt(4));
-                list.add(u);
+//                User u = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getInt(6));
+//                list.add(u);
             }
             
         } catch (SQLException ex) {
@@ -80,7 +79,7 @@ public class userservice implements service<user>{
     }
 
 //    @Override
-   public void add(user p) {
+   public void add(User p) {
 //        String requete = "insert into personne (nom,prenom,age) values('" + u.ge + "','" + p.getPrenom() + "'," + p.getAge() + ")";
 //        Statement ste;
 //        try {
@@ -95,17 +94,17 @@ public class userservice implements service<user>{
    
 
     @Override
-    public void delete(user t) {
+    public void delete(User t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void update(user t) {
+    public void update(User t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public user readById(int id) {
+    public User readById(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
