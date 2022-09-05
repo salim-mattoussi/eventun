@@ -72,11 +72,11 @@ public class ForgetpwdController implements Initializable {
         cnx = DataSource.getConnection();
     }
 
+
     @FXML
     void search(ActionEvent event) throws IOException, SQLException {
         try {
-            String login = txtnom.getText().trim();
-
+            String login = this.txtnom.getText().trim();
             if (login.isEmpty()) {
 
                 JOptionPane.showMessageDialog(null, "S'il vous plaît entrer votre nom");
@@ -116,8 +116,8 @@ public class ForgetpwdController implements Initializable {
     void retrivePsw(ActionEvent event) throws SQLException {
          User u = new User();
          u.setId(idu);
-//try{
-        // String login = txtnom.getText().trim();
+try{
+        String login = txtnom.getText().trim();
         String pwd = txtmdp.getText().trim();
         String pwd1 = txtrep.getText().trim();
         //String login = setlogin(login);
@@ -129,15 +129,20 @@ public class ForgetpwdController implements Initializable {
             JOptionPane.showMessageDialog(null, "Mot de passe incorrect veuillez verifier les deux champs  ");
 
         } else {
-           
-            pst = cnx.prepareStatement("UPDATE user set `pwd` = " +"'"+pwd +"'"+" WHERE id = "+u.getId() );
+            pst = cnx.prepareStatement("UPDATE user set `pwd` = " +"'"+pwd +"'"+" WHERE login = "+login+"'" );
              
+
              
              pst.executeUpdate();
-      
+                             
+
       
             JOptionPane.showMessageDialog(null, "la nouveau mot de passe a changé avec succée");
-
+ System.out.println(pwd);
+        }
+ } catch (Exception ex) {
+              System.out.println(ex);
+              
         }
 
     }
