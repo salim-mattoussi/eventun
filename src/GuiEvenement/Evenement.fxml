@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GuiEvenement.EvenementController">
-    <stylesheets>
-        <URL value="@evenement.css"/>
-    </stylesheets>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GuiEvenement.EvenementController">
+   <children>
+      <TextField fx:id="Nomx" layoutX="208.0" layoutY="155.0" promptText="Nom" />
+      <TextField fx:id="Lieux" layoutX="218.0" layoutY="231.0" promptText="Lieu" />
+      <TextField fx:id="Descriptionx" layoutX="218.0" layoutY="373.0" promptText="Description" />
+      <DatePicker fx:id="Datex" layoutX="218.0" layoutY="298.0" promptText="Date Event" />
+      <Button fx:id="ajouterx" layoutX="237.0" layoutY="438.0" mnemonicParsing="false" onAction="#Verifier" text="Ajouter" />
+      <Button fx:id="Annulerx" layoutX="360.0" layoutY="438.0" mnemonicParsing="false" text="Annuler" />
+      <Label layoutX="99.0" layoutY="159.0" text="Nom :" />
+      <Label layoutX="101.0" layoutY="235.0" text="Lieu :" />
+      <Label layoutX="107.0" layoutY="378.0" text="Description :" />
+   </children>
 </AnchorPane>

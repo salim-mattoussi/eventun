@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GuiEvenement.GestionEvenementController">
+   <children>
+      <TableView fx:id="tablex" layoutY="-2.0" prefHeight="400.0" prefWidth="606.0">
+        <columns>
+          <TableColumn fx:id="col_nom" prefWidth="75.0" text="Nom" />
+          <TableColumn fx:id="col_lieu" prefWidth="75.0" text="Lieu" />
+            <TableColumn fx:id="col_dateevent" prefWidth="75.0" text="Date Event" />
+            <TableColumn fx:id="col_descption" prefWidth="75.0" text="Description" />
+            <TableColumn fx:id="col_nbrticket" prefWidth="75.0" text="Nombre des tickets" />
+            <TableColumn fx:id="col_prix" prefWidth="96.0" text="Prix du ticket" />
+            <TableColumn fx:id="col_etat" prefWidth="134.0" text="Etat" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

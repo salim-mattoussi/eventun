@@ -36,7 +36,7 @@ public class eventservice implements service<Evenement> {
     @Override
     public void add(Evenement e)  {
         try {
-            String requete = "insert into evenement (id,nom,lieu,date,description) values(?,?,?,?,?)";
+            String requete = "insert into evenement (nom,lieu,date,description) values(?,?,?,?,?)";
             
             try {
                 pst = cnx.prepareStatement(requete);
@@ -46,8 +46,8 @@ public class eventservice implements service<Evenement> {
             
             pst.setString(1, e.getNom());
             pst.setString(2, e.getLieu());
-            pst.setString(3, e.getDescription());
-            pst.setInt(4, e.getId());
+            pst.setString(4, e.getDescription());
+            pst.setString(3, e.getDate());
             
             pst.executeUpdate();
         } catch (SQLException ex) {
