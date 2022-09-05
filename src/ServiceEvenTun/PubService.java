@@ -24,14 +24,14 @@ import java.sql.Statement;
 
 
     public void add(Publicite p) throws SQLException {
-        String requete = "insert into Publicite (type,description) values(?,?)";
+        String requete = "insert into Publicite (type,description,image) values(?,?,?)";
 
         pst = cnx.prepareStatement(requete);
 
        
         pst.setString(1, p.getType());
         pst.setString(2, p.getDescription());
-       
+        pst.setString(3, p.getImage());
 
         pst.executeUpdate();
 

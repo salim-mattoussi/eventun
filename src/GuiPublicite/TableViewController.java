@@ -5,10 +5,9 @@
  */
 package GuiPublicite;
 
-import GestionPublicite.Publicite;
-import UtilData.DataSource;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import UtilData.DataSource;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -36,43 +35,34 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
+import GestionPublicite.Publicite;
 
-/**
- * FXML Controller class
- *
- * @author hocin
- */
-public class FormulairePubliciteController implements Initializable {
 
-   @FXML
-    private TableView<Publicite> PubliciteTable;
-    @FXML
-    private TableColumn<Publicite, String> descriCol;
+public class TableViewController implements Initializable {
 
     @FXML
-    private TableColumn<Publicite, String> editCol;
-
+    private TableView<Publicite> publicitesTable;
     @FXML
     private TableColumn<Publicite, String> idCol;
-
-    @FXML
-    private TableColumn<Publicite, String> imgCol;
-
     @FXML
     private TableColumn<Publicite, String> typeCol;
+    @FXML
+    private TableColumn<Publicite, String> descripCol;
+    @FXML
+    private TableColumn<Publicite, String> imgCol;
+    @FXML
+    private TableColumn<Publicite, String> editCol;
     
     String query = null;
-    Connection connection = null ;
+    Connection cnx = null ;
     PreparedStatement preparedStatement = null ;
     ResultSet resultSet = null ;
-    Publicite Publicite = null ;
+    Publicite publicite = null ;
     
     ObservableList<Publicite>  PubliciteList = FXCollections.observableArrayList();
 
     /**
      * Initializes the controller class.
-     * @param url
-     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -92,14 +82,14 @@ public class FormulairePubliciteController implements Initializable {
     @FXML
     private void getAddView(MouseEvent event) {
         try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/GuiPublicite/addPublicite.fxml"));
+            Parent parent = FXMLLoader.load(getClass().getResource("/GuiPublicite/AddPublicite.fxml"));
             Scene scene = new Scene(parent);
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.initStyle(StageStyle.UTILITY);
             stage.show();
         } catch (IOException ex) {
-            Logger.getLogger(FormulairePubliciteController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TableViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
@@ -110,7 +100,7 @@ public class FormulairePubliciteController implements Initializable {
             PubliciteList.clear();
             
             query = "SELECT * FROM `publicite`";
-            preparedStatement = connection.prepareStatement(query);
+            preparedStatement = cnx.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
             
             while (resultSet.next()){
@@ -119,13 +109,13 @@ public class FormulairePubliciteController implements Initializable {
                         resultSet.getString("type"),
                         resultSet.getString("description"),
                         resultSet.getString("image")));
-                Publicite.setItems(PubliciteList);
+                publicitesTable.setItems(PubliciteList);
                 
             }
             
             
         } catch (SQLException ex) {
-            Logger.getLogger(FormulairePubliciteController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TableViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
@@ -138,14 +128,13 @@ public class FormulairePubliciteController implements Initializable {
 
     private void loadDate() {
         
-      Connection cnx = DataSource.getInstance().getConnection();
+        cnx = DataSource.getInstance().getConnection();
         refreshTable();
         
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         typeCol.setCellValueFactory(new PropertyValueFactory<>("type"));
-        descriCol.setCellValueFactory(new PropertyValueFactory<>("description"));
+        descripCol.setCellValueFactory(new PropertyValueFactory<>("description"));
         imgCol.setCellValueFactory(new PropertyValueFactory<>("image"));
-       
         
         //add cell of button edit 
          Callback<TableColumn<Publicite, String>, TableCell<Publicite, String>> cellFoctory = (TableColumn<Publicite, String> param) -> {
@@ -177,15 +166,15 @@ public class FormulairePubliciteController implements Initializable {
                         deleteIcon.setOnMouseClicked((MouseEvent event) -> {
                             
                             try {
-                               Publicite = PubliciteTable.getSelectionModel().getSelectedItem();
-                                query = "DELETE FROM `publicite` WHERE id  ="+Publicite.getId();
-                                Connection cnx = DataSource.getInstance().getConnection();
-                                preparedStatement = connection.prepareStatement(query);
+                                publicite = publicitesTable.getSelectionModel().getSelectedItem();
+                                query = "DELETE FROM `publicite` WHERE id  ="+publicite.getId();
+                                cnx= DataSource.getInstance().getConnection();
+                                preparedStatement = cnx.prepareStatement(query);
                                 preparedStatement.execute();
                                 refreshTable();
                                 
                             } catch (SQLException ex) {
-                                Logger.getLogger(FormulairePubliciteController.class.getName()).log(Level.SEVERE, null, ex);
+                                Logger.getLogger(TableViewController.class.getName()).log(Level.SEVERE, null, ex);
                             }
                             
                            
@@ -195,19 +184,19 @@ public class FormulairePubliciteController implements Initializable {
                         });
                         editIcon.setOnMouseClicked((MouseEvent event) -> {
                             
-                            Publicite = PubliciteTable.getSelectionModel().getSelectedItem();
+                            publicite = publicitesTable.getSelectionModel().getSelectedItem();
                             FXMLLoader loader = new FXMLLoader ();
-                            loader.setLocation(getClass().getResource("/GuiPublicite/addPubicite.fxml"));
+                            loader.setLocation(getClass().getResource("/GuiPublicite/AddPublicite.fxml"));
                             try {
                                 loader.load();
                             } catch (IOException ex) {
-                                Logger.getLogger(FormulairePubliciteController.class.getName()).log(Level.SEVERE, null, ex);
+                                Logger.getLogger(TableViewController.class.getName()).log(Level.SEVERE, null, ex);
                             }
                             
-                            FormulairePubliciteController FormulairePubliciteController = loader.getController();
-                            FormulairePubliciteController.setUpdate(true);
-                            FormulairePubliciteController.setTextField(Publicite.getId(), Publicite.getType(), 
-                                    Publicite.getDescription(), Publicite.getImage());
+                            AddPubliciteController AddPubliciteController = loader.getController();
+                            AddPubliciteController.setUpdate(true);
+                            AddPubliciteController.setTextField(publicite.getId(), publicite.getType(), 
+                                    publicite.getDescription(), publicite.getImage());
                             Parent parent = loader.getRoot();
                             Stage stage = new Stage();
                             stage.setScene(new Scene(parent));
@@ -236,17 +225,9 @@ public class FormulairePubliciteController implements Initializable {
             return cell;
         };
          editCol.setCellFactory(cellFoctory);
-         PubliciteTable.setItems(PubliciteList);
+         publicitesTable.setItems(PubliciteList);
          
          
-    }
-
-    private void setUpdate(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    private void setTextField(int id, String type, String description, String image) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }
