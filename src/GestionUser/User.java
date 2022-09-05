@@ -7,35 +7,38 @@ package GestionUser;
 
 import java.util.Objects;
 
+
 /**
  *
  * @author panda
  */
-public class user {
+public class User {
     private int id;
     private String login;
-    private String email;
     private String pwd;
-    private int telf;
+    private int Telephone;
+    private String email;
     private String role;
-     private String name;
 
-    public user() {
+    
+    
+
+    public User() {
     }
 
-    public user(int id, String login, String email, String pwd, int telf, String role, String name) {
+    public User(int id, String login, String pwd, int Telephone, String email, String role) {
         this.id = id;
         this.login = login;
-        this.email = email;
         this.pwd = pwd;
-        this.telf = telf;
+        this.Telephone = Telephone;
+        this.email=email;
         this.role = role;
-        this.name = name;
+       
+        
     }
 
-    public user(int aInt, String string, String string0, int aInt0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
+
 
     public int getId() {
         return id;
@@ -69,12 +72,12 @@ public class user {
         this.pwd = pwd;
     }
 
-    public int getTelf() {
-        return telf;
+    public int getTelephone() {
+        return Telephone;
     }
 
-    public void setTelf(int telf) {
-        this.telf = telf;
+    public void setTelephone(int Telephone) {
+        this.Telephone = Telephone;
     }
 
     public String getRole() {
@@ -85,13 +88,7 @@ public class user {
         this.role = role;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    
 
     @Override
     public int hashCode() {
@@ -110,7 +107,7 @@ public class user {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final user other = (user) obj;
+        final User other = (User) obj;
         if (this.id != other.id) {
             return false;
         }
@@ -122,7 +119,7 @@ public class user {
 
     @Override
     public String toString() {
-        return "user{" + "id=" + id + ", login=" + login + ", email=" + email + ", pwd=" + pwd + ", telf=" + telf + ", role=" + role + ", name=" + name + '}';
+        return "user{" + "id=" + id + ", login=" + login + ", pwd=" + pwd + ", Telephone=" + Telephone + ", email=" + email +  ", role=" + role + '}';
     }
     
 
