@@ -5,3 +5,6 @@
 .mainFxmlClass {
 
 }
+.backgroundColor{
+    -fx-background-color: linear-gradient(to right,#ffffff, #b5c2c7);
+}

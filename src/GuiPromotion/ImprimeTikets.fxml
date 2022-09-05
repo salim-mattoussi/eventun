@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="598.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GuiPromotion.ImprimeTiketsController">
+   <children>
+      <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label text="MERCI &amp; Bienvenu ">
+               <font>
+                  <Font name="Calibri" size="48.0" />
+               </font>
+            </Label>
+            <Label prefHeight="44.0" prefWidth="168.0" text="eventun" textFill="#bf3a3a">
+               <font>
+                  <Font name="Cambria Math" size="48.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <ImageView fitHeight="321.0" fitWidth="483.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/tic-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Button alignment="CENTER" mnemonicParsing="false" text="imprime" textFill="#111010" textOverrun="CLIP" />
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label text="votre promotion    " />
+            <TextField fx:id="prom" />
+            <Label />
+         </children>
+      </HBox>
+   </children>
+</VBox>
