@@ -11,28 +11,28 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: f2f3f4;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GuiUser.SignUpController">
+<AnchorPane id="AnchorPane" prefHeight="495.0" prefWidth="600.0" style="-fx-background-color: f2f3f4;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GuiUser.SignUpController">
    <children>
-      <Label alignment="BASELINE_LEFT" layoutX="324.0" layoutY="137.0" text="Telephone :" />
-      <Label alignment="BASELINE_LEFT" layoutX="326.0" layoutY="183.0" text="Nom:" />
-      <Label alignment="BASELINE_LEFT" layoutX="323.0" layoutY="96.0" text="E mail :" />
-      <Label alignment="BASELINE_LEFT" layoutX="325.0" layoutY="227.0" text="Password :" />
-      <Label fx:id="lblrole" alignment="BASELINE_LEFT" layoutX="327.0" layoutY="271.0" text="Role :" />
-      <TextField fx:id="txttelf" layoutX="421.0" layoutY="123.0" style="-fx-background-color: transparent; -fx-border-color: #fe167e; -fx-border-width: 0px 0px 3px 0px;" />
-      <TextField fx:id="txtemail" layoutX="420.0" layoutY="81.0" style="-fx-background-color: transparent; -fx-border-color: #fe167e; -fx-border-width: 0px 0px 3px 0px;" />
-      <TextField fx:id="txtlogin" layoutX="422.0" layoutY="168.0" style="-fx-background-color: transparent; -fx-border-color: #fe167e; -fx-border-width: 0px 0px 3px 0px;" />
-      <Button fx:id="btnsignup" layoutX="462.0" layoutY="315.0" mnemonicParsing="false" onAction="#select" style="-fx-background-color: #fe167e;" text="S'inscrire" textFill="WHITE">
+      <Label alignment="BASELINE_LEFT" layoutX="327.0" layoutY="215.0" text="Telephone :" />
+      <Label alignment="BASELINE_LEFT" layoutX="327.0" layoutY="254.0" text="Login" />
+      <Label alignment="BASELINE_LEFT" layoutX="327.0" layoutY="176.0" text="E mail :" />
+      <Label alignment="BASELINE_LEFT" layoutX="327.0" layoutY="294.0" text="Mot de Passe :" />
+      <Label fx:id="lblrole" alignment="BASELINE_LEFT" layoutX="329.0" layoutY="338.0" text="Role :" />
+      <TextField fx:id="txttelf" layoutX="424.0" layoutY="201.0" style="-fx-background-color: transparent; -fx-border-color: #fe167e; -fx-border-width: 0px 0px 3px 0px;" />
+      <TextField fx:id="txtemail" layoutX="424.0" layoutY="161.0" style="-fx-background-color: transparent; -fx-border-color: #fe167e; -fx-border-width: 0px 0px 3px 0px;" />
+      <TextField fx:id="txtlogin" layoutX="423.0" layoutY="239.0" style="-fx-background-color: transparent; -fx-border-color: #fe167e; -fx-border-width: 0px 0px 3px 0px;" />
+      <Button fx:id="btnsignup" layoutX="450.0" layoutY="381.0" mnemonicParsing="false" onAction="#select" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: #fe167e;" text="S'inscrire" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <AnchorPane layoutY="1.0" prefHeight="403.0" prefWidth="286.0" style="-fx-background-color: F5F5F5;">
+      <AnchorPane layoutY="1.0" prefHeight="495.0" prefWidth="292.0" style="-fx-background-color: F5F5F5;">
          <children>
-            <ImageView fitHeight="134.0" fitWidth="291.0" layoutX="1.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="182.0" fitWidth="291.0" layoutX="1.0" layoutY="367.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/png_party_38747.png" />
                </image>
             </ImageView>
-            <Label layoutX="46.0" layoutY="136.0" text="Bienvenue !" textFill="#fe167e">
+            <Label layoutX="48.0" layoutY="189.0" text="Bienvenue !" textFill="#fe167e">
                <font>
                   <Font name="Cambria Bold" size="36.0" />
                </font>
@@ -44,9 +44,13 @@
             <Font name="System Bold" size="19.0" />
          </font>
       </Label>
-      <ComboBox fx:id="comborole" layoutX="422.0" layoutY="256.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-color: #fe167e; -fx-border-width: 0px 0px 3px 0px;" />
-      <PasswordField fx:id="txtpwd" layoutX="422.0" layoutY="210.0" style="-fx-background-color: transparent; -fx-border-color: #fe167e; -fx-border-width: 0px 0px 3px 0px;" />
-      <Label layoutX="414.0" layoutY="373.0" text="Déjà inscrit ? " />
-      <Hyperlink layoutX="485.0" layoutY="370.0" text="Se Connecter" textFill="#fe167e" />
+      <ComboBox fx:id="comborole" layoutX="424.0" layoutY="323.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-color: #fe167e; -fx-border-width: 0px 0px 3px 0px;" />
+      <PasswordField fx:id="txtpwd" layoutX="424.0" layoutY="277.0" style="-fx-background-color: transparent; -fx-border-color: #fe167e; -fx-border-width: 0px 0px 3px 0px;" />
+      <Label layoutX="422.0" layoutY="439.0" text="Déjà inscrit ? " />
+      <Hyperlink fx:id="btnlogin" layoutX="493.0" layoutY="436.0" onAction="#login" text="Se Connecter" textFill="#fe167e" />
+      <Label alignment="BASELINE_LEFT" layoutX="327.0" layoutY="137.0" text="Prenom" />
+      <Label alignment="BASELINE_LEFT" layoutX="327.0" layoutY="99.0" text="Nom" />
+      <TextField fx:id="txtprenom" layoutX="424.0" layoutY="123.0" style="-fx-background-color: transparent; -fx-border-color: #fe167e; -fx-border-width: 0px 0px 3px 0px;" />
+      <TextField fx:id="txtNom" layoutX="424.0" layoutY="84.0" style="-fx-background-color: transparent; -fx-border-color: #fe167e; -fx-border-width: 0px 0px 3px 0px;" />
    </children>
 </AnchorPane>

@@ -6,14 +6,12 @@
 package GuiUser;
 
 import GestionUser.User;
+import ServiceEvenTun.userservice;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ResourceBundle;
+
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,15 +20,13 @@ import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 import UtilData.DataSource;
 
-import gestionutilisateur.user;
-import java.awt.event.MouseEvent;
+import java.util.ResourceBundle;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
+
 import javafx.stage.Stage;
 
 /**
@@ -39,112 +35,114 @@ import javafx.stage.Stage;
  * @author panda
  */
 public class ForgetpwdController implements Initializable {
-
-    @FXML
-    private Label labelemail;
-
+    
     @FXML
     private Button btnback;
-
-    @FXML
-    private Button btnrecap;
-
-    @FXML
-    private Button btnserch;
-
+    
     @FXML
     private TextField txtmdp;
-
     @FXML
     private TextField txtnom;
-
     @FXML
     private TextField txtrep;
-
+    
     private Connection cnx;
-    private Statement ste;
-    private PreparedStatement pst;
-    private ResultSet rs;
-    private user u;
-    private int idu;
-
+   
+   
+    static String login;
+    @FXML
+    private Button btnserch;
+    userservice us = new userservice();
+    
     public ForgetpwdController() {
         cnx = DataSource.getConnection();
     }
-
-
+    
     @FXML
-    void search(ActionEvent event) throws IOException, SQLException {
+    void search(ActionEvent event) throws IOException {
         try {
-            String login = this.txtnom.getText().trim();
+            
+            login = this.txtnom.getText().trim();
             if (login.isEmpty()) {
-
+                
                 JOptionPane.showMessageDialog(null, "S'il vous plaît entrer votre nom");
             } else {
-                pst = cnx.prepareStatement("select login from user where login=?");
-                ste = cnx.createStatement();
-                pst.setString(1, login);
-
-                rs = pst.executeQuery();
-
-                if (rs.next()) {
-
+                User u1 = new User(login);
+                if ((us.forgetpass(u1) == false)) {
+                    System.out.println("ok");
+                } else {
                     Parent view4 = FXMLLoader.load(getClass().getResource("forgetpwd2.fxml"));
                     Scene scene4 = new Scene(view4);
                     Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     window.setScene(scene4);
                     window.show();
-
-                } else {
-                    JOptionPane.showMessageDialog(null, "Error: nom  incorrect");
-                    txtnom.setText("");
-                    txtrep.setText("");
-                    txtmdp.setText("");
-                    txtnom.requestFocus();
-
+                    
                 }
-
+                
             }
-
+            
         } catch (Exception ex) {
-            System.out.println(ex);
+            ex.printStackTrace();
         }
-
+        
     }
-
+    
     @FXML
-    void retrivePsw(ActionEvent event) throws SQLException {
-         User u = new User();
-         u.setId(idu);
-try{
-        String login = txtnom.getText().trim();
-        String pwd = txtmdp.getText().trim();
-        String pwd1 = txtrep.getText().trim();
-        //String login = setlogin(login);
-        if ((pwd.isEmpty()) || (pwd1.isEmpty())) {
+    void retrivePsw(ActionEvent event) {
 
-            JOptionPane.showMessageDialog(null, "S'il vous plaît remplir les champs vides ");
+//        u.setId(idu);
+        try {
+            //System.out.println("ttttttttt"+login);
 
-        } else if (!(pwd).equals(pwd1)) {
-            JOptionPane.showMessageDialog(null, "Mot de passe incorrect veuillez verifier les deux champs  ");
+//            String login = txtnom.getText();
+            String pwd = txtmdp.getText().trim();
+            String pwd1 = txtrep.getText().trim();
 
-        } else {
-            pst = cnx.prepareStatement("UPDATE user set `pwd` = " +"'"+pwd +"'"+" WHERE login = "+login+"'" );
-             
-
-             
-             pst.executeUpdate();
-                             
-
-      
-            JOptionPane.showMessageDialog(null, "la nouveau mot de passe a changé avec succée");
- System.out.println(pwd);
+            //String login = setlogin(login);
+            if ((pwd.isEmpty()) || (pwd1.isEmpty())) {
+                
+                JOptionPane.showMessageDialog(null, "S'il vous plaît remplir les champs vides ");
+                
+            } else if (!(pwd).equals(pwd1)) {
+                JOptionPane.showMessageDialog(null, "Mot de passe incorrect veuillez verifier les deux champs  ");
+                
+            } else {
+                User u = new User(login, pwd);
+                
+                us.updatepass(u);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
- } catch (Exception ex) {
-              System.out.println(ex);
-              
+        
+    }
+    
+    @FXML
+    void back(ActionEvent event) throws IOException {
+        
+        if (event.getSource() == btnback) {
+            
+            Parent root = FXMLLoader.load(getClass().getResource("forgetpwd.fxml"));
+            Scene scene = new Scene(root);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setScene(scene);
+            window.show();
+            
         }
-
+    }
+    
+    @FXML
+    void back1(ActionEvent event) throws IOException {
+        
+        if (event.getSource() == btnback) {
+            
+            Parent root = FXMLLoader.load(getClass().getResource("logininterface.fxml"));
+            Scene scene = new Scene(root);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setScene(scene);
+            window.show();
+            
+        }
     }
 
     /**
@@ -153,5 +151,5 @@ try{
     @Override
     public void initialize(URL url, ResourceBundle rb) { // TODO
     }
-
+    
 }

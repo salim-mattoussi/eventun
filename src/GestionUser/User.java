@@ -15,9 +15,17 @@ import java.util.Objects;
 public class User {
     private int id;
     private String login;
+     private String Nom;
+      private String Prenom;
     private String pwd;
     private int Telephone;
     private String email;
+
+    public User(String login, String pwd, String role) {
+        this.login = login;
+        this.pwd = pwd;
+        this.role = role;
+    }
     private String role;
 
     
@@ -26,8 +34,10 @@ public class User {
     public User() {
     }
 
-    public User(int id, String login, String pwd, int Telephone, String email, String role) {
+    public User(int id,String Nom,String Prenom,  String login, String pwd, int Telephone, String email, String role) {
         this.id = id;
+        this.Nom=Nom;
+        this.Prenom=Prenom;
         this.login = login;
         this.pwd = pwd;
         this.Telephone = Telephone;
@@ -36,6 +46,47 @@ public class User {
        
         
     }
+
+    public User(String login) {
+        this.login = login;
+    }
+
+    public User(String Nom,String Prenom,String login, String pwd, int Telephone, String email, String role) {
+      this.Nom=Nom;
+      this.Prenom=Prenom;
+        this.login = login;
+        this.pwd = pwd;
+        this.Telephone = Telephone;
+        this.email = email;
+        this.role = role;
+    }
+
+    public User(String login, String pwd) {
+        this.login = login;
+        this.pwd = pwd;
+    }
+
+    public String getNom() {
+        return Nom;
+    }
+
+    public void setNom(String Nom) {
+        this.Nom = Nom;
+    }
+
+    public String getPrenom() {
+        return Prenom;
+    }
+
+    public void setPrenom(String Prenom) {
+        this.Prenom = Prenom;
+    }
+
+    
+
+   
+
+  
 
     
 
@@ -119,7 +170,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "user{" + "id=" + id + ", login=" + login + ", pwd=" + pwd + ", Telephone=" + Telephone + ", email=" + email +  ", role=" + role + '}';
+        return "user{" + "id=" + id + ", Nom=" + Nom + ", Prenom=" + Prenom + ", login=" + login + ", pwd=" + pwd + ", Telephone=" + Telephone + ", email=" + email +  ", role=" + role + '}';
     }
     
 

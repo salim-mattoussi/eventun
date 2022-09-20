@@ -23,12 +23,17 @@
       <TextField fx:id="txtnom" layoutX="228.0" layoutY="200.0" style="-fx-background-color: transparent; -fx-border-color: #fe167e; -fx-border-width: 0px 0px 3px 0px;" />
       <Button fx:id="btnserch" layoutX="412.0" layoutY="204.0" mnemonicParsing="false" onAction="#search" style="-fx-background-color: #fe167e;">
          <graphic>
-            <ImageView fitHeight="20.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="20.0" fitWidth="19.0" onDragDetected="#search" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/icons8-user-not-found-60.png" />
                </image>
             </ImageView>
          </graphic>
+      </Button>
+      <Button fx:id="btnback" layoutX="498.0" layoutY="335.0" mnemonicParsing="false" onAction="#back1" style="-fx-background-color: #fe167e;" text="Retour" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
       </Button>
    </children>
 </AnchorPane>

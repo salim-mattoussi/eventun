@@ -56,7 +56,7 @@ public class Controller implements Initializable {
             anchtable.getChildren().setAll(pane);
         }
         if (actionEvent.getSource() == btnpub) {
-            Pane pane = FXMLLoader.load(getClass().getResource("Gestionpubadmin.fxml"));
+            Pane pane = FXMLLoader.load(getClass().getResource("/GuiPublicite/TableView.fxml"));
             anchtable.getChildren().setAll(pane);
         }
         if (actionEvent.getSource() == btnevent) {
@@ -64,9 +64,9 @@ public class Controller implements Initializable {
             anchtable.getChildren().setAll(pane);
         }
         if (actionEvent.getSource() == btnSignout) {
-            Pane pane = FXMLLoader.load(getClass().getResource("logininterface.fxml"));
-
-            Scene scene = new Scene(pane);
+            
+              Parent root=FXMLLoader.load(getClass().getResource("logininterface.fxml"));
+            Scene scene = new Scene(root);
             Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             window.setScene(scene);
             window.show();

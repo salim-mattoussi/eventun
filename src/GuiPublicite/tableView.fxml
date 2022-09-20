@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="576.0" prefWidth="1179.0" style="-fx-background-color: #02030A;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GuiPublicite.TableViewController">
+    <stylesheets>
+        <URL value="@tableview.css" />
+    </stylesheets>
+   <children>
+      <ImageView fitHeight="36.0" fitWidth="42.0" layoutX="16.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/pub.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="publicitesTable" layoutX="68.0" layoutY="156.0" prefHeight="406.0" prefWidth="972.0">
+        <columns>
+          <TableColumn fx:id="idCol" maxWidth="70.0" prefWidth="70.0" style="-fx-alignment: center;" text="ID" />
+          <TableColumn fx:id="typeCol" maxWidth="238.0" prefWidth="238.0" style="-fx-alignment: center;" text="type" />
+            <TableColumn fx:id="descripCol" maxWidth="234.0" prefWidth="219.0" style="-fx-alignment: center;" text="description" />
+            <TableColumn fx:id="imgCol" maxWidth="278.0" prefWidth="255.0" style="-fx-alignment: center;" text="image" />
+            <TableColumn fx:id="editCol" maxWidth="230.0" minWidth="0.0" prefWidth="189.0" style="-fx-alignment: center;" text="NAME" />
+        </columns>
+      </TableView>
+      <Pane layoutY="59.0" prefHeight="3.0" prefWidth="200.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+        <Text fill="#2196f3" layoutX="68.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="publicites Details" wrappingWidth="266.13671875">
+         <font>
+            <Font name="Bauhaus 93" size="32.0" />
+         </font>
+      </Text>
+      <HBox alignment="CENTER" layoutX="602.0" layoutY="-1.0" prefHeight="36.0" prefWidth="37.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <FontAwesomeIconView glyphName="CLOSE" onMouseClicked="#close" size="20" styleClass="btn" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="34.0" layoutY="73.0" prefHeight="76.0" prefWidth="200.0">
+         <children>
+            <FontAwesomeIconView fill="#2196f3" glyphName="USER_PLUS" onMouseClicked="#getAddView" size="45" styleClass="btn">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </FontAwesomeIconView>
+            <FontAwesomeIconView fill="#00e676" glyphName="REFRESH" layoutX="10.0" layoutY="65.0" onMouseClicked="#refreshTable" size="45" styleClass="btn">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </FontAwesomeIconView>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
