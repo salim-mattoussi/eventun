@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1334.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GuiUser.GestionUtilisateuradminController">
+   <effect>
+      <DropShadow color="#1b1eeb" />
+   </effect>
+   <children>
+      <BorderPane prefHeight="573.0" prefWidth="1043.0">
+         <top>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="9.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="31.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_Person_32px.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="TOP_RIGHT" text="Gestion des utilisateurs" textFill="#4323f5">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </top>
+         <center>
+            <AnchorPane fx:id="anchtable" prefHeight="473.0" prefWidth="1178.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TableView fx:id="table" prefHeight="429.0" prefWidth="1163.0">
+                    <columns>
+                        <TableColumn fx:id="tab_id" minWidth="50.0" prefWidth="75.0" text="Id" />
+                        <TableColumn fx:id="tab_Nom" minWidth="50.0" prefWidth="79.0" text="Nom" />
+                        <TableColumn fx:id="tab_Prenom" minWidth="50.0" prefWidth="87.0" text="Prenom" />
+                      <TableColumn fx:id="tab_login" minWidth="102.0" prefWidth="103.0" text="Login" />
+                      <TableColumn fx:id="tab_pwd" minWidth="91.0" prefWidth="103.0" text="Pwd" />
+                        <TableColumn fx:id="tab_telf" minWidth="134.0" prefWidth="135.0" text="Telephone" />
+                        <TableColumn fx:id="tab_email" minWidth="141.0" prefWidth="153.0" text="Email" />
+                        <TableColumn fx:id="tab_role" minWidth="60.0" prefWidth="144.0" text="Role" />
+                        <TableColumn fx:id="action" prefWidth="229.0" text="Action" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+      <HBox alignment="CENTER_LEFT" prefHeight="129.0" prefWidth="1043.0" spacing="50.0">
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#Display" prefHeight="27.0" prefWidth="87.0" style="-fx-border-color: #2A73FF; -fx-border-radius: 20; -fx-background-color: transparent;" stylesheets="@style.css" text="Actualiser" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

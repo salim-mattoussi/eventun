@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GuiPromotion.AcceuilController">
+   <top>
+      <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="20.0" styleClass="white-background" stylesheets="@Acceuil.css" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="61.0" prefWidth="258.0" text="EvenTun" textFill="#720a0a">
+               <font>
+                  <Font name="Gabriola" size="48.0" />
+               </font>
+            </Label>
+            <Separator maxHeight="-Infinity" orientation="VERTICAL" prefHeight="43.0" prefWidth="6.0" />
+            <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="35.0" prefWidth="290.0" styleClass="round-layout" stylesheets="@Acceuil.css">
+               <children>
+                  <TextField prefHeight="31.0" prefWidth="255.0" promptText="Recherche " styleClass="transparent" stylesheets="@Acceuil.css" />
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/tessst-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <Pane prefHeight="60.0" prefWidth="368.0" HBox.hgrow="ALWAYS" />
+            <HBox prefHeight="60.0" prefWidth="227.0">
+               <children>
+                  <Label prefHeight="60.0" prefWidth="124.0" text="user name">
+                     <font>
+                        <Font name="Franklin Gothic Demi" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/user.jpg" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="signout" mnemonicParsing="false" onAction="#logout" prefHeight="40.0" prefWidth="43.0" style="-fx-background-color: #dd0a0a;">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/log-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </HBox>
+         </children>
+         <padding>
+            <Insets left="20.0" right="5.0" />
+         </padding>
+      </HBox>
+   </top>
+   <left>
+      <VBox prefHeight="830.0" prefWidth="301.0" spacing="10.0" styleClass="white-background" stylesheets="@Acceuil.css" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="283.0" prefWidth="301.0">
+               <children>
+                  <Label prefHeight="60.0" prefWidth="124.0" text="Consulter">
+                     <font>
+                        <Font name="Franklin Gothic Demi" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" spacing="15.0" stylesheets="@Acceuil.css">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/event-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                        <Label prefHeight="50.0" prefWidth="193.0" stylesheets="@Acceuil.css" text="Evenement">
+                           <font>
+                              <Font name="Franklin Gothic Demi" size="18.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="mouse-moved" />
+                              <String fx:value="selected" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                     <styleClass>
+                        <String fx:value="mouse-moved" />
+                        <String fx:value="selected" />
+                     </styleClass>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@Acceuil.css">
+                     <children>
+                        <ImageView fitHeight="34.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/pub-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                        <Label prefHeight="50.0" prefWidth="185.0" styleClass="mouse-moved" stylesheets="@Acceuil.css" text="Publicité">
+                           <font>
+                              <Font name="Franklin Gothic Demi" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="54.0" prefWidth="301.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@Acceuil.css">
+                     <children>
+                        <ImageView fitHeight="34.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons8_Person_32px.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="btnprofil" mnemonicParsing="false" onAction="#handleClicks" text="profil" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Separator prefWidth="200.0" />
+            <VBox prefHeight="233.0" prefWidth="301.0">
+               <children>
+                  <Label prefHeight="60.0" prefWidth="213.0" text=" Bibliothèque">
+                     <font>
+                        <Font name="Franklin Gothic Demi" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@Acceuil.css">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" opacity="0.72" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/fav-removebg-preview.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="18.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label prefHeight="50.0" prefWidth="193.0" styleClass="mouse-moved" stylesheets="@Acceuil.css" text="Fovoris">
+                           <font>
+                              <Font name="Franklin Gothic Demi" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="15.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@Acceuil.css">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="249.0" spacing="15.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="50.0" prefWidth="266.0" spacing="15.0">
+                                 <children>
+                                    <ImageView fitHeight="37.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/hist-removebg-preview.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <Label prefHeight="50.0" prefWidth="183.0" styleClass="mouse-moved" stylesheets="@Acceuil.css" text="Historique">
+                                       <font>
+                                          <Font name="Franklin Gothic Demi" size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets left="10.0" top="20.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Separator prefWidth="200.0" />
+            <Label prefHeight="60.0" prefWidth="178.0" text="Réseaux sociaux">
+               <font>
+                  <Font name="Franklin Gothic Demi" size="18.0" />
+               </font>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </Label>
+            <HBox prefHeight="46.0" prefWidth="301.0" styleClass="mouse-moved" stylesheets="@Acceuil.css">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/fb-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="46.0" prefWidth="204.0" styleClass="mouse-moved" stylesheets="@Acceuil.css" text="fb/eventun">
+                     <HBox.margin>
+                        <Insets left="15.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Futura Light BT" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="45.0" prefWidth="301.0" styleClass="mouse-moved" stylesheets="@Acceuil.css">
+               <children>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/insta-removebg-preview.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label prefHeight="45.0" prefWidth="210.0" styleClass="mouse-moved" stylesheets="@Acceuil.css" text="insta/eventun">
+                     <font>
+                        <Font name="Futura Light BT" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets left="21.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="45.0" prefWidth="301.0">
+               <children>
+                  <ImageView fitHeight="48.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/mail-removebg-preview.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="7.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label prefHeight="53.0" prefWidth="254.0" text="eventun097@gmail.com">
+                     <HBox.margin>
+                        <Insets left="15.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets top="15.0" />
+         </padding>
+      </VBox>
+   </left>
+   <center>
+      <AnchorPane prefHeight="539.0" prefWidth="1014.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="590.0" prefWidth="1010.0">
+               <children>
+                  <Label prefHeight="52.0" prefWidth="368.0" text="les nouveaux évènements" textFill="#42f507">
+                     <font>
+                        <Font name="Franklin Gothic Medium Cond" size="24.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <ScrollPane prefHeight="250.0" prefWidth="873.0" styleClass="transparent" stylesheets="@Acceuil.css">
+                     <content>
+                        <HBox fx:id="cardlayout" alignment="CENTER_LEFT" prefHeight="241.0" prefWidth="1011.0" spacing="20.0" styleClass="transparent" stylesheets="@Acceuil.css">
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </HBox>
+                     </content>
+                  </ScrollPane>
+                  <Label prefHeight="61.0" prefWidth="239.0" text="les évènements ">
+                     <font>
+                        <Font name="Franklin Gothic Medium Cond" size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets left="30.0" />
+                     </padding>
+                  </Label>
+                  <ScrollPane prefHeight="240.0" prefWidth="990.0" styleClass="transparent" stylesheets="@Acceuil.css" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                     <content>
+                        <GridPane fx:id="eventcontanair">
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

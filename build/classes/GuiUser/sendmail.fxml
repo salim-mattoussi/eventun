@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GuiUser.SendmailController">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="32.0" layoutY="95.0" text="A" />
+            <Label layoutX="21.0" layoutY="145.0" text="Objet" />
+            <Label layoutX="17.0" layoutY="192.0" text="Contenu" />
+            <TextField fx:id="to" layoutX="75.0" layoutY="82.0" prefHeight="26.0" prefWidth="496.0" style="-fx-background-color: transparent; -fx-border-color: #c0c0c0; -fx-border-width: 0px 0px 1px 0px;" />
+            <TextField fx:id="sub" layoutX="76.0" layoutY="132.0" prefHeight="26.0" prefWidth="496.0" style="-fx-background-color: transparent; -fx-border-color: #c0c0c0; -fx-border-width: 0px 0px 1px 0px;" />
+            <TextArea fx:id="cont" layoutX="75.0" layoutY="189.0" prefHeight="142.0" prefWidth="496.0" style="-fx-background-color: transparent;" />
+            <Button layoutX="506.0" layoutY="348.0" mnemonicParsing="false" onAction="#Envoyer" text="Envoyer" />
+            <Label layoutX="36.0" layoutY="22.0" text="Nouveau message">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

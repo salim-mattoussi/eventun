@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox fx:id="box" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" spacing="10.0" style="-fx-background-radius: 15;" styleClass="shadow" stylesheets="@Acceuil.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GuiPromotion.CardController">
+   <children>
+      <ImageView fx:id="partyimg" fitHeight="180.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/party1.jpg" />
+         </image>
+         <HBox.margin>
+            <Insets left="20.0" />
+         </HBox.margin>
+      </ImageView>
+      <VBox prefHeight="150.0" prefWidth="253.0">
+         <children>
+            <Label fx:id="partydet" prefHeight="61.0" prefWidth="272.0" text="New year party ..." textFill="WHITE">
+               <font>
+                  <Font name="Bernard MT Condensed" size="35.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="descparty" prefHeight="21.0" prefWidth="274.0" text="2022-2023" textFill="WHITE" />
+            <ImageView fitHeight="27.0" fitWidth="138.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/stars-removebg-preview.png" />
+               </image>
+               <VBox.margin>
+                  <Insets left="20.0" top="30.0" />
+               </VBox.margin>
+            </ImageView>
+            <Button fx:id="btnachat" mnemonicParsing="false" onAction="#acheter" prefHeight="38.0" prefWidth="49.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="200.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="28.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/done-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</HBox>
